@@ -22,7 +22,13 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip install conan
+FROM gcc:6
 
+RUN deb http://ftp.debian.org/debian jessie-backports main \
+  && apt-get update && apt-get -t jessie-backports install -y --no-install-recommends \
+         cmake \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 # Download and build from source
 WORKDIR /tmp
