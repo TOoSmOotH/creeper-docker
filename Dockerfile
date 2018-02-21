@@ -18,7 +18,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   git \
   sudo \
   wget \
-  python-pip
+  python-pip \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip install conan
