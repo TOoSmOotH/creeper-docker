@@ -20,6 +20,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   wget \
   && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install -y python-pip && \
+ pip install conan
+
+
 # Download and build from source
 WORKDIR /tmp
 RUN wget $CREEP_MINER_RELEASE \
@@ -27,7 +31,7 @@ RUN wget $CREEP_MINER_RELEASE \
   && mkdir -p $CREEP_MINER_DIR \
   && tar -xvf $CREEP_MINER_ARCHIVE \
   && cd $CREEP_MINER_PACKAGE \
-  && sudo ./install-poco.sh \
+  && conan install . -s compiler.libcxx=libstdc++11 --build=missing
   && cmake CMakeLists.txt -DCMAKE_BUILD_TYPE=RELEASE -DNO_GPU=ON -DUSE_AVX2=ON -DCMAKE_INSTALL_PREFIX:PATH=$CREEP_MINER_DIR \
   && make \
   && make install \
