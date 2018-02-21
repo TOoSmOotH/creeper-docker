@@ -57,6 +57,10 @@ RUN chmod +x ./creepMiner
 # Expose local web port
 EXPOSE 8080
 
+# Add the Config
+RUN mkdir -p /etc/creeper
+ADD mining.conf /etc/creeper
+
 # Copy Shell scripts
 COPY miner.sh $CREEP_MINER_DIR
 RUN chmod +x ./miner.sh

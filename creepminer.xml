@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>CreepMiner</Name>
+  <Repository>toosmooth/creepminer</Repository>
+  <Registry>https://hub.docker.com/r/toosmooth/creepminer/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/TOoSmOotH/creeper-docker/issues</Support>
+  <Overview>Burst mining fun with the creeper miner. You have to make your own plots.</Overview>
+  <Category>Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon></Icon>
+  <ExtraParams/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata</HostDir>
+      <ContainerDir>/mnt/miner</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Config Name="Plot Folder" Target="/mnt/disk1" Default="/mnt/user/Plots" Mode="rw" Description="The location where your plots live." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/Plots</Config>
+  <Config Name="Listen Port" Target="8080" Default="8099" Mode="tcp" Description="Container Listen Port" Type="Port" Display="always" Required="true" Mask="false">8099</Config>
+</Container>
