@@ -15,6 +15,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   libssl-dev \
   openssl \
   cmake \
+  deb \
   git \
   sudo \
   wget \
