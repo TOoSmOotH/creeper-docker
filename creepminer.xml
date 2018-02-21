@@ -18,12 +18,18 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata</HostDir>
-      <ContainerDir>/mnt/miner</ContainerDir>
-      <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Environment/>
+  <WebUI>http://[IP]:[PORT:8099]/</WebUI>
+  <Environment>
+   <Variable>
+     <Name></Name>
+     <Value></Value>
+   </Variable>
+ </Environment>
+  <Config Name="Plot Folder" Target="/mnt/miner" Default="/mnt/user/appdata" Mode="rw" Description="The location where your container lives." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata</Config>
   <Config Name="Plot Folder" Target="/mnt/disk1" Default="/mnt/user/Plots" Mode="rw" Description="The location where your plots live." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/Plots</Config>
   <Config Name="Listen Port" Target="8080" Default="8099" Mode="tcp" Description="Container Listen Port" Type="Port" Display="always" Required="true" Mask="false">8099</Config>
+  <Config Name="Mining Pool Server Address" Target="MADDRESS" Default="0-100-pool.burst.cryptoguru.org" Mode="" Description="Mining Pool Address" Type="Variable" Display="always" Required="true" Mask="false">0-100-pool.burst.cryptoguru.org</Config>
+  <Config Name="Mining Pool Server Port" Target="PORT" Default="8124" Mode="" Description="Mining Pool Port" Type="Variable" Display="always" Required="true" Mask="false">8124</Config>
 </Container>
